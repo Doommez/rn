@@ -5,8 +5,8 @@
  * @format
  */
 
-import {Button} from '@rneui/base';
-import React from 'react';
+import {Button, Card, Icon} from '@rneui/base';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -63,6 +63,7 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const [state, setState] = useState(false);
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -74,9 +75,32 @@ function App(): React.JSX.Element {
         style={backgroundStyle}>
         <Header />
 
-        <Button title="Solid" />
+        <Button
+          title="Solid"
+          onPress={() => {
+            setState(!state);
+          }}
+          icon={<Icon name="home" type="material" size={30} color="#000" />}
+        />
         <Button title="Outline" type="outline" />
         <Button title="Clear" type="clear" />
+
+        {state ? (
+          <Text>yes!</Text>
+        ) : (
+          <Card>
+            <Icon name="home" type="material" size={30} color="#000" />
+            <Card.Title>Card Title</Card.Title>
+            <Card.Divider />
+            <Text style={{marginBottom: 10}}>
+              This is a card with some content.
+            </Text>
+            <Button
+              icon={<Icon name="home" type="material" size={30} color="#000" />}
+              title="Click Me"
+            />
+          </Card>
+        )}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

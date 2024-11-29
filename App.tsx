@@ -5,6 +5,7 @@
  * @format
  */
 
+import {Button} from '@rneui/base';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -72,6 +73,10 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
+        <Button title="Solid" />
+        <Button title="Outline" type="outline" />
+        <Button title="Clear" type="clear" />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

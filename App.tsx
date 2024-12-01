@@ -80,10 +80,17 @@ function App(): React.JSX.Element {
           onPress={() => {
             setState(!state);
           }}
-          icon={<Icon name="home" type="material" size={30} color="#000" />}
+          icon={<Icon name="home" type="FontAwesome" size={30} color="#000" />}
         />
         <Button title="Outline" type="outline" />
         <Button title="Clear" type="clear" />
+        <Button radius={'sm'} type="solid">
+          Save
+          <Icon name="save" color="white" />
+        </Button>
+        <View>
+          <Icon name="home" size={30} color="#900" />
+        </View>
 
         {state ? (
           <Text>yes!</Text>
